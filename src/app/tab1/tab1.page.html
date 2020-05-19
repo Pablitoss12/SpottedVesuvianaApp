@@ -1,41 +1,69 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Spotted Vesuviana
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-img src="/assets/img_spotted.JPG"></ion-img>
       <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
+        <ion-card-title *ngIf= "visible">Spotted Vesuviana</ion-card-title>
+        <ion-card-subtitle>App ufficiale di spotted Vesuviana {{today | date: 'dd MMMM yyyy' }}</ion-card-subtitle>
       </ion-card-header>
+    </ion-card>
+    <ion-card *ngIf="!visible">
+      <ion-card-header>
+        <ion-card-subtitle>Quiz per la vesuviana</ion-card-subtitle>
+        <ion-card-title>Quiz Game</ion-card-title>
+      </ion-card-header>    
       <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+        <ion-button (click) = "load()" > GIOCA</ion-button>
+      </ion-card-content>
+      <img  *ngIf="url" [src]="url">
+    </ion-card>
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>Classifica Utenti</ion-card-title>
+      </ion-card-header>
+   <app-list-component></app-list-component>
+     
+    </ion-card>
+    
+    
+    <ion-card>
+      <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>ion-item in a card, icon left, button right</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+    
+      <ion-card-content>
+        This is content, without any paragraph or header tags,
+        within an ion-card-content element.
       </ion-card-content>
     </ion-card>
+   
+
     <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
+      <ion-list-header (click) = "clickHandler()" >
+        <ion-label>Risorse</ion-label>
       </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
+      <ion-item href="https://www.spottedvesuviana.com/">
         <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
+        <ion-label>Sito Web</ion-label>
+      </ion-item>      
+      <ion-item href="">
         <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
+        <ion-label>Social</ion-label>
+      </ion-item>     
+      <ion-item href="https://t.me/SpottedVesuviana">
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
+        <ion-label>Canale Telegram</ion-label>
+      </ion-item> 
+      
     </ion-list>
 </ion-content>
